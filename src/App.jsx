@@ -4,14 +4,14 @@ import ContactList from './components/ContactList.jsx';
 import SelectedContact from './components/SelectedContact.jsx';
 
 export default function App() {
-  const [selectedContact, setSelectedContact] = useState(null)
+  const [selectedContactId, setSelectedContactId] = useState(null)
   return (
    <>
-   {selectedContact ? (
-    <SelectedContact />
-   ) : (
+    <SelectedContact
+      selectedContactId = {selectedContactId}
+      setSelectedContactId = {setSelectedContactId} 
+      />
      <ContactList />
-   )}
    </>
   );
 }
