@@ -9,15 +9,15 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
   ];
   
-export default function ContactList () {
+export default function ContactList ({setSelectedContactId}) {
     const [contacts, setContacts] = useState(dummyContacts);
     useEffect(() => {
         async function fetchContacts() {
             try {
                 const response = await fetch(
-                    "https://jsonplace-univclone.herokuapp.com/users"
+                    "https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
                 );
-                const result = away response.json()
+                const result = await response.json();
                 setContacts(result);
             } catch (error) {
                 console.error(error);
